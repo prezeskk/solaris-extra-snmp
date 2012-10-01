@@ -1,0 +1,25 @@
+#!/usr/bin/python
+BASE_OID = '.1.3.6.1.4.1.25359.4'
+DB_SCRIPT = '/usr/local/bin/bbdb-util'
+
+import sys, commands, re, os, snmpresponse, logging
+
+# logging.basicConfig(filename='/var/log/snmp-extra.log',level=logging.ERROR)
+# logging.debug('BB-SNMP_DEBUGGING')
+
+def db_sessions(oid):
+    output = str(commands.getoutput(DB_SCRIPT))
+    try:
+       res = int(re.split("\s+",output)[1])
+       return ('gauge', res)
+    except Exception:
+       return ('gauge', 0)
+
+result = [
+    ( BASE_OID + '.1.0', db_sessions),
+]
+
+operation = sys.argv[1]
+req_oid = sys.argv[2]
+
+snmpresponse.respond_to(operation, req_oid, result)
