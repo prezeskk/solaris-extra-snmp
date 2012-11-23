@@ -19,6 +19,8 @@ When deployed, it provides the following additional information:
     NYMNETWORKS-MIB::zfsARCDataSizeKB.0 = Gauge32: 4407899
     NYMNETWORKS-MIB::zfsARCHits.0 = Counter32: 564613730
     NYMNETWORKS-MIB::zfsARCMisses.0 = Counter32: 18646010
+    NYMNETWORKS-MIB::zfsARCTargetSize.0 = Counter32: 16777216
+    NYMNETWORKS-MIB::zfsARCMru.0 = Counter32: 12438572
     NYMNETWORKS-MIB::zfsL2ARCHits.0 = Counter32: 0
     NYMNETWORKS-MIB::zfsL2ARCMisses.0 = Counter32: 18646013
     NYMNETWORKS-MIB::zfsL2ARCReads.0 = Counter32: 0
