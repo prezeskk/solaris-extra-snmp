@@ -60,7 +60,7 @@ def zfs_pools():
     return pools
 
 def zfs_used_avail(fs):
-    return [ long(x) / 1024 for x in commands.getoutput("zfs get -Hpo value used,available " + fs).split("\n")]
+    return [ int(x) / 1024 for x in commands.getoutput("zfs get -Hpo value used,available " + fs).split("\n")]
 
 def zfs_used(fs, divisor=1):
     return ('gauge', zfs_used_avail(fs)[0] / divisor)
