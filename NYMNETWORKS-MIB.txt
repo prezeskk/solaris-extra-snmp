@@ -109,11 +109,11 @@ zfsPoolHealth OBJECT-TYPE
 	::= {fs 4}
 
 zfsFilesystemSizeKB OBJECT-TYPE
-        SYNTAX  INTEGER { online(1), degraded(2), faulted(3), unknown(4) }
+        SYNTAX  GAUGE
         ACCESS  read-only
         STATUS  mandatory
         DESCRIPTION
-        	 "The number of 1 MB blocks that are assigned"
+        	 "The number of 1 KB blocks that are assigned"
 	::= {fs 5}
 
 zfsFilesystemAvailableMB OBJECT-TYPE
